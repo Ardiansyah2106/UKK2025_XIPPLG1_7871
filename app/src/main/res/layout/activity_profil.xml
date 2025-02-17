@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profil">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/back_edit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/back_icon"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#C5C5C5"
+            app:cardCornerRadius="40dp"
+            android:layout_centerInParent="true">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profil"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/profil" />
+
+                <TextView
+                    android:id="@+id/ganti_prof"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profil"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="#23C1D5"
+                    android:layout_marginTop="10dp"
+                    android:text="Ubah Foto" />
+
+                <TextView
+                    android:id="@+id/nama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Nama Lengkap"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:layout_below="@id/profil"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"/>
+
+                <TextView
+                    android:id="@+id/Gmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:layout_below="@id/nama"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"/>
+
+                <Button
+                    android:id="@+id/edit_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Gmail"
+                    android:backgroundTint="@color/black"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Edit Data"/>
+
+                <Button
+                    android:id="@+id/keluar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/edit_data"
+                    android:backgroundTint="#BC272C"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Log Out"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</RelativeLayout>
