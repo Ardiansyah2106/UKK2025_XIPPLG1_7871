@@ -25,6 +25,7 @@
             android:text="Profil"
             android:textSize="30dp"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:layout_toRightOf="@+id/back_edit"
             android:layout_marginLeft="25dp"/>
 
@@ -55,6 +56,7 @@
                     android:layout_below="@id/profil"
                     android:gravity="center"
                     android:textStyle="bold"
+                    android:textSize="17dp"
                     android:textColor="#23C1D5"
                     android:layout_marginTop="10dp"
                     android:text="Ubah Foto" />
@@ -66,7 +68,7 @@
                     android:hint="Nama Lengkap"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:textSize="15dp"
+                    android:textSize="20dp"
                     android:layout_below="@id/profil"
                     android:layout_marginTop="40dp"
                     android:layout_marginLeft="20dp"
@@ -78,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Email"
                     android:layout_below="@id/nama"
-                    android:textSize="15dp"
+                    android:textSize="20dp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:layout_marginTop="20dp"
