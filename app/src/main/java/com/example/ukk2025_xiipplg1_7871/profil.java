@@ -33,5 +33,13 @@ public class profil extends AppCompatActivity {
                 finish();
             }
         });
+        findViewById(R.id.back_edit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent untuk pindah ke SecondActivity
+                Intent intent = new Intent(profil.this, dashboard.class);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -82,7 +82,7 @@ public class register extends AppCompatActivity {
         }
 
         // URL API
-        String url = "http://172.16.0.227/UKK_2025_7871/register.php";
+        String url = "http://172.16.0.179/UKK_2025_7871/register.php";
 
         // Request ke API
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
