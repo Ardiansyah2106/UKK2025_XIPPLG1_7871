@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ import java.util.List;
 public class dashboard extends AppCompatActivity {
 
     private ListView listView;
+    private ImageView menu;
     private taskAdapter adapter;
     private List<task> taskList;
     private static final String URL = "http://172.16.0.179/UKK_2025_7871/daftar_tugas.php";
@@ -35,6 +37,7 @@ public class dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        menu = findViewById(R.id.Menu);
         listView = findViewById(R.id.list_tugas);
         taskList = new ArrayList<>();
 
@@ -49,6 +52,14 @@ public class dashboard extends AppCompatActivity {
                 // Intent untuk pindah ke SecondActivity
                 Intent intent = new Intent(dashboard.this, profil.class);
                 startActivity(intent);
+            }
+        });
+
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                menuDialog dialog = new menuDialog();
+                dialog.show(getSupportFragmentManager(), "HalfScreenDialog");
             }
         });
 

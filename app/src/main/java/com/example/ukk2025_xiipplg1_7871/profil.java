@@ -25,7 +25,23 @@ public class profil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil);
 
+        swipeRefresh = findViewById(R.id.swipeRefresh);
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadData(); // Memuat ulang data dari SharedPreferences
+                swipeRefresh.setRefreshing(false); // Hentikan animasi refresh setelah selesai
+            }
+        });
+
         edit = findViewById(R.id.edit_data);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditProfilDialog editDialog = new EditProfilDialog(profil.this);
+                editDialog.show(getSupportFragmentManager(), "Edit Profil");
+            }
+        });
 
         logout = findViewById(R.id.keluar);
         logout.setOnClickListener(new View.OnClickListener() {
@@ -54,8 +70,6 @@ public class profil extends AppCompatActivity {
         tvGmail.setText("Email: " + email);
         tvNama.setText("Nama: " + nama);
 
-        tvGmail.setText("Email: " + email);
-        tvNama.setText("Nama: " + nama);
 
         findViewById(R.id.back_edit).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,5 +79,11 @@ public class profil extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    private void loadData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
+        String nama = sharedPreferences.getString("nama", "Tidak tersedia");
+
+        tvNama.setText("Nama: " + nama);
     }
 }

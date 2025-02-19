@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".profil">
@@ -66,11 +67,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Nama Lengkap"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
+                    android:layout_below="@id/ganti_prof"
                     android:textSize="20dp"
-                    android:layout_below="@id/profil"
-                    android:layout_marginTop="40dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"/>
 
@@ -97,7 +98,7 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
-                    android:text="Edit Data"/>
+                    android:text="Ubah Nama Pengguna"/>
 
                 <Button
                     android:id="@+id/keluar"
@@ -116,4 +117,4 @@
 
     </RelativeLayout>
 
-</RelativeLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
