@@ -24,6 +24,7 @@ public class taskAdapter extends ArrayAdapter<task> {
         TextView tipe = convertView.findViewById(R.id.tipe);
         TextView waktu = convertView.findViewById(R.id.Date);
         TextView jam = convertView.findViewById(R.id.time);
+        TextView status = convertView.findViewById(R.id.status);
 
         task book = getItem(position);
         if (book != null) {
@@ -32,6 +33,7 @@ public class taskAdapter extends ArrayAdapter<task> {
             tipe.setText("Tipe: " + book.getTipe());
             waktu.setText("Waktu: " + book.getDate());
             jam.setText("jam: " + book.getTime());
+            status.setText("Status Tugas: " + book.getStatus());
         }
 
         return convertView;

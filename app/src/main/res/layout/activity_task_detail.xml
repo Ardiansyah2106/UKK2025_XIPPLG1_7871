@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".task_detail">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tugas"
+        android:textSize="30dp"
+        android:layout_toRightOf="@+id/back"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/back_icon"/>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/back"
+        android:layout_marginTop="40dp"
+        android:background="#E1E1E1"
+        android:paddingTop="8dp"
+        android:paddingLeft="15dp"
+        android:text="Nama tugas"/>
+
+    <TextView
+        android:id="@+id/kategori"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/description"
+        android:layout_marginTop="15dp"
+        android:background="#E1E1E1"
+        android:paddingTop="8dp"
+        android:paddingLeft="15dp"
+        android:text="Kategori"/>
+
+    <TextView
+        android:id="@+id/tipe"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/kategori"
+        android:layout_marginTop="15dp"
+        android:background="#E1E1E1"
+        android:paddingTop="8dp"
+        android:paddingLeft="15dp"
+        android:text="Tipe"/>
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/tipe"
+        android:layout_marginTop="15dp"
+        android:background="#E1E1E1"
+        android:paddingTop="8dp"
+        android:paddingLeft="15dp"
+        android:text="Tanggal Tugas"/>
+
+    <TextView
+        android:id="@+id/jam"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/date"
+        android:layout_marginTop="15dp"
+        android:background="#E1E1E1"
+        android:paddingTop="8dp"
+        android:paddingLeft="15dp"
+        android:text="Waktu Tugas"/>
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/jam"
+        android:layout_marginTop="15dp"
+        android:background="#E1E1E1"
+        android:paddingTop="8dp"
+        android:paddingLeft="15dp"
+        android:text="Status Tugas"/>
+
+    <Button
+        android:id="@+id/complete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tandai Selesai"
+        android:backgroundTint="@color/black"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="15dp"
+        />
+
+
+</RelativeLayout>
