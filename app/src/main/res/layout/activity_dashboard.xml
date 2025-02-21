@@ -19,6 +19,19 @@
         android:textStyle="bold"
         android:gravity="center_horizontal"/>
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_dashboard"
+        android:layout_marginStart="8dp"
+        app:queryHint="Cari Tugas"
+        app:iconifiedByDefault="false"
+        android:background="@drawable/border_search"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp" />
+
     <ImageView
         android:id="@+id/profil"
         android:layout_width="40dp"
@@ -45,12 +58,12 @@
         android:textAlignment="center"
         android:textSize="35dp" />
 
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiperefreshh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_dashboard"
-        android:layout_marginTop="24dp"
+        android:layout_below="@id/search"
         android:layout_above="@id/addlist">
 
     <ListView
@@ -58,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_dashboard"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

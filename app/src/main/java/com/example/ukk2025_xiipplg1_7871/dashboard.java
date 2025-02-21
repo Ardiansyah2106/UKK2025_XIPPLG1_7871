@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.Request;
@@ -38,6 +39,7 @@ public class dashboard extends AppCompatActivity {
     private taskAdapter adapter;
     private List<task> taskList;
     private SwipeRefreshLayout swipeRefresh;
+    private SearchView search;
     private static final String URL = "http://172.16.0.179/UKK_2025_7871/daftar_tugas.php";
     private static final String DELETE_BOOK_URL = "http://172.16.0.179/UKK_2025_7871/delete_task.php";
 
@@ -46,6 +48,21 @@ public class dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        search = findViewById(R.id.search);
+        search.clearFocus();
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
 
         menu = findViewById(R.id.Menu);
         listView = findViewById(R.id.list_tugas);
@@ -120,6 +137,21 @@ public class dashboard extends AppCompatActivity {
             }
         });
     }
+
+    private void filterList(String text) {
+        List<task> filteredList = new ArrayList<>();
+
+        for (task item : taskList) {
+            if (item.getDescription().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+
+        adapter.setFilteredList(filteredList);
+    }
+
+
+
     private void showDeleteConfirmation(int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Konfirmasi Hapus");
@@ -188,6 +220,8 @@ public class dashboard extends AppCompatActivity {
                     public void onResponse(JSONArray response) {
                         Log.d("API Response", response.toString()); // Debugging API response
                         taskList.clear();
+                        List<task> tempList = new ArrayList<>();
+
                         for (int i = 0; i < response.length(); i++) {
                             try {
                                 JSONObject bookObject = response.getJSONObject(i);
@@ -197,12 +231,17 @@ public class dashboard extends AppCompatActivity {
                                 String date = bookObject.getString("tanggal");
                                 String time = bookObject.getString("jam");
                                 String status = bookObject.getString("status");
-                                taskList.add(new task(deskripsi, kategori, tipe, date, time, status));
+
+                                tempList.add(new task(deskripsi, kategori, tipe, date, time, status));
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         }
-                        adapter.notifyDataSetChanged();
+
+                        // **Pastikan taskList dan originalList diperbarui dengan data yang didapat**
+                        taskList.addAll(tempList);
+                        adapter.setFilteredList(taskList); // Pastikan adapter menampilkan data baru
+
                     }
                 },
                 new Response.ErrorListener() {
@@ -213,6 +252,7 @@ public class dashboard extends AppCompatActivity {
                 });
         queue.add(request);
     }
+
     private void loadData(String deskripsi, String kategori, String tipe, String date, String time, String status) {
         String URL = "http://172.16.0.179/UKK_2025_7871/get_kategori.php"; // Ganti dengan URL API Anda
 

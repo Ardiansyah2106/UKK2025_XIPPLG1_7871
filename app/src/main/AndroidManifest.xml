@@ -31,7 +31,7 @@
         <activity
             android:name=".dashboard"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".register"
             android:exported="false"
